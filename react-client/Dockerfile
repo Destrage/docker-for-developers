@@ -1,15 +1,11 @@
-FROM node
+FROM node:18
 
 WORKDIR /app
 
-RUN npm i -g pnpm
+COPY package*.json .
 
-COPY package*.json ./
-
-RUN pnpm install
+RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
-CMD [ "pnpm", "dev"]
+CMD [ "npm", "run", "dev"]
