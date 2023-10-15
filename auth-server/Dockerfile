@@ -1,12 +1,10 @@
-FROM node
+FROM node:18
 
 WORKDIR /usr/src/auth_server
 
-RUN npm i -g pnpm
-
 COPY package*.json ./
 
-RUN pnpm install
+RUN npm install
 
 COPY . .
 
